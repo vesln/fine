@@ -1,6 +1,6 @@
 {
   "name": "fine",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Tiny, recursive and synchronous file finder utility",
   "keywords": ["find", "findr", "finder"],
   "main": "index.js",
