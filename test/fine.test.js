@@ -1,5 +1,6 @@
+var path = require('path');
 var findr = require('..');
-var fixtures = __dirname + '/fixtures/';
+var fixtures = path.join(__dirname, 'fixtures');
 
 describe('fine', function() {
   it('returns an error when the supplied path is not a directory', function() {
@@ -9,46 +10,50 @@ describe('fine', function() {
   });
 
   it('can handle situations where the path is a file', function() {
-    findr(fixtures + 'a.js').should.eql([
-      fixtures + 'a.js'
+    findr(fixture('a.js')).should.eql([
+      fixture('a.js')
     ]);
   });
 
   it('returns all files in a directory tree', function() {
     findr(fixtures).should.eql([
-      fixtures + '2/3/c.js',
-      fixtures + '2/3/d.foo.js',
-      fixtures + '2/b.js',
-      fixtures + 'a.js',
-      fixtures + 'e.coffee',
+      fixture('2/3/c.js'),
+      fixture('2/3/d.foo.js'),
+      fixture('2/b.js'),
+      fixture('a.js'),
+      fixture('e.coffee'),
     ]);
   });
 
   it('can return files with given extension', function() {
     findr(fixtures, { ext: '.coffee' }).should.eql([
-      fixtures + 'e.coffee',
+      fixture('e.coffee'),
     ]);
   });
 
   it('can ignore files', function() {
-    findr(fixtures, { ignore: fixtures + 'e.coffee' }).should.eql([
-      fixtures + '2/3/c.js',
-      fixtures + '2/3/d.foo.js',
-      fixtures + '2/b.js',
-      fixtures + 'a.js',
+    findr(fixtures, { ignore: fixture('e.coffee') }).should.eql([
+      fixture('2/3/c.js'),
+      fixture('2/3/d.foo.js'),
+      fixture('2/b.js'),
+      fixture('a.js'),
     ]);
   });
 
   it('can ignore directories', function() {
-    findr(fixtures, { ignore: fixtures + '2/' }).should.eql([
-      fixtures + 'a.js',
-      fixtures + 'e.coffee',
+    findr(fixtures, { ignore: fixture('2') }).should.eql([
+      fixture('a.js'),
+      fixture('e.coffee')
     ]);
   });
 
   it('can ignore many locations atonce', function() {
-    findr(fixtures, { ignore: [fixtures + '2/', fixtures + 'e.coffee'] }).should.eql([
-      fixtures + 'a.js',
+    findr(fixtures, { ignore: [fixture('2'), fixture('e.coffee')] }).should.eql([
+      fixture('a.js')
     ]);
   });
 });
+
+function fixture(p) {
+  return path.join(fixtures, p);
+}
