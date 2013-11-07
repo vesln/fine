@@ -7,7 +7,40 @@
 
 ## Synopsis
 
-## Description
+Simple, recursive and synchronous file finder utility.
+
+The module is very tiny and not very well generalized. However, that's the
+exact functionality that I needed in:
+
+- [curiosity](https://github.com/vesln/curiosity)
+- [stylec](https://github.com/vesln/stylec)
+- [hell](https://github.com/vesln/hell)
+
+For more complete solution see:
+
+- [shelljs](https://github.com/arturadib/shelljs)
+
+## Usage
+
+```js
+var files = fine('/tmp');
+```
+
+#### Return files only with given extension
+
+```js
+fine('/tmp', { ext: '.js' });
+```
+
+### Ignore list
+
+```js
+fine('/tmp/', { ignore: '/tmp/secret' });
+```
+
+```js
+fine('/tmp/', { ignore: ['/tmp/secret', '/tmp/fbi.js', '/tmp/bad.js'] });
+```
 
 ## Installation
 

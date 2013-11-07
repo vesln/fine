@@ -1,4 +1,4 @@
-hell ?= dot
+REPORTER ?= dot
 
 check: jshint test
 
