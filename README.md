@@ -23,16 +23,18 @@ For more complete solution see:
 ## Usage
 
 ```js
+var fine = require('fine');
+
 var files = fine('/tmp');
 ```
 
-#### Return files only with given extension
+#### Return files with given extension
 
 ```js
 fine('/tmp', { ext: '.js' });
 ```
 
-### Ignore list
+#### Ignore list
 
 ```js
 fine('/tmp/', { ignore: '/tmp/secret' });
