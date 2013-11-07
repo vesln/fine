@@ -1,8 +1,8 @@
 {
   "name": "fine",
   "version": "0.0.1",
-  "description": "",
-  "keywords": [],
+  "description": "Tiny, recursive and synchronous file finder utility",
+  "keywords": ["find", "findr", "finder"],
   "main": "index.js",
   "homepage": "https://github.com/vesln/fine",
   "directories": {
