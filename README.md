@@ -7,24 +7,32 @@
 
 ## Synopsis
 
-Simple, recursive and synchronous file finder utility.
+Tiny, recursive and synchronous file finder utility.
 
-The module is very tiny and not very well generalized. However, that's the
-exact functionality that I needed in:
+## Features
 
-- [curiosity](https://github.com/vesln/curiosity)
-- [stylec](https://github.com/vesln/stylec)
-- [hell](https://github.com/vesln/hell)
+- Recursive file finder
+- Filter by extension
+- Ignore list
+- Synchronous
+- Windows support
 
-For more complete solution see:
+## Description
 
-- [shelljs](https://github.com/arturadib/shelljs)
+The module is optimized for finding specific files in a given directory tree.
+I needed something that could allow me to easily accomplish the following:
+
+```
+$ ./bin/awesome ~/Code/npm/ --ignore ~/Code/npm/test --ignore ~/Code/npm/examples
+```
+
+In this particular case we are interested in all .js files in the npm
+directory tree, but not in test, nor in examples.
 
 ## Usage
 
 ```js
 var fine = require('fine');
-
 var files = fine('/tmp');
 ```
 
@@ -70,6 +78,11 @@ $ make test-cov
 ```bash
 $ make jshint
 ```
+
+## Similar projects
+
+- [node-glob](https://github.com/isaacs/node-glob)
+- [shelljs](https://github.com/arturadib/shelljs)
 
 ## Support the author
 
