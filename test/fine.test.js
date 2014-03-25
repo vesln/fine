@@ -31,6 +31,16 @@ describe('fine', function() {
     ]);
   });
 
+  it('can return files with given extensions', function() {
+    findr(fixtures, { ext: ['.coffee', '.js'] }).should.eql([
+      fixture('2/3/c.js'),
+      fixture('2/3/d.foo.js'),
+      fixture('2/b.js'),
+      fixture('a.js'),
+      fixture('e.coffee'),
+    ]);
+  });
+
   it('can ignore files', function() {
     findr(fixtures, { ignore: fixture('e.coffee') }).should.eql([
       fixture('2/3/c.js'),
