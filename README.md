@@ -36,10 +36,14 @@ var fine = require('fine');
 var files = fine('/tmp');
 ```
 
-#### Return files with given extension
+#### Return files with given extension(s)
 
 ```js
 fine('/tmp', { ext: '.js' });
+```
+
+```js
+fine('/tmp', { ext: ['.js', '.coffee'] });
 ```
 
 #### Ignore list
